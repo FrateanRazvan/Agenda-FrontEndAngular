@@ -1,0 +1,44 @@
+<app-navbar [pageName]="'Add Task'"></app-navbar>
+<ion-content>
+     <div>
+        <form>
+            <ion-item>
+                <ion-label>Title</ion-label>
+                <ion-input type="text" [(ngModel)]="task.title" name="title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Description</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Datetime Added</ion-label>
+                <ion-datetime displayFormat="YYYY-MM-DDTHH:mm"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>Datetime Deadline</ion-label>
+                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2030"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>Importance</ion-label>
+                <ion-select interface="popover">
+                   <ion-select-option *ngFor="let option of IMPORTANCE_REF">
+                       {{option}}
+                   </ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>State</ion-label>
+                <ion-select interface="popover">
+                    <ion-select-option *ngFor="let option of STATE_REF">
+                        {{option}}
+                    </ion-select-option>
+                 </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Datetime ClosedAt</ion-label>
+                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2030"></ion-datetime>
+            </ion-item>
+            <ion-button (click)="login()" >Log in</ion-button>
+        </form>
+     </div>
+</ion-content>

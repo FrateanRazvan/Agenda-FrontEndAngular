@@ -9,3 +9,11 @@ export class Task{
     state: string;
     dateTimeClosedAt: string;
 }
+
+export const IMPORTANCE_REF = [
+    'low',
+    'medium',
+    'high'
+];
+
+export const STATE_REF = ['open', 'in progress', 'closed'];
