@@ -4,6 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TasksPage } from './tasks/tasks.page';
 import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
 import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
+import { UpdateTaskPage } from './pages/update.task.page.ts/update.task.page';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'tasks/view',
     component: ViewTaskPage
+  },
+  {
+    path: 'tasks/update',
+    component: UpdateTaskPage
   },
   {
     path: '',

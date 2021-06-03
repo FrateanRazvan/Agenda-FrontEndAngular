@@ -15,7 +15,7 @@ export class TasksPage{
     task: Task
 
     constructor(private apiSvc: ApiService, private router: Router){
-
+      
     }
 
     ionViewWillEnter(){
@@ -26,6 +26,23 @@ export class TasksPage{
       this.router.navigateByUrl("tasks/add");
     }
 
+    goToUpdateTask(task: Task){
+      this.apiSvc.get(`api/Tasks/${task.id}`).subscribe((response: Task) => {
+        console.log("sunt aici"+response.id);
+        //set my task with the one i get by id
+        this.task = response;
+
+        //setup task to be sent as paramaters
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+            special: JSON.stringify(this.task)
+          }
+        }
+        //navigate to "tasks/update" with response of object task as parameters
+        this.router.navigate(['tasks','update'], navigationExtras);
+    });
+    }
+
     deleteTask(task: Task){
        this.apiSvc.delete(`api/Tasks/${task.id}`).subscribe(() => {
         this.loadTasks();
@@ -34,7 +51,7 @@ export class TasksPage{
 
     gotToViewTask(task: Task){
       this.apiSvc.get(`api/Tasks/${task.id}`).subscribe((response: Task) => {
-          console.log("sunt aici"+response.id);
+         
           //set my task with the one i get by id
           this.task = response;
 

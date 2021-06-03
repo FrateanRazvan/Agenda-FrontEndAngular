@@ -15,11 +15,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
 import { FormsModule } from '@angular/forms';
 import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
+import { UpdateTaskPage } from './pages/update.task.page.ts/update.task.page';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, SideMenuComponent, AddTaskPage, ViewTaskPage,
-    LoginPage, TasksPage],
+    //Components
+    AppComponent,
+    NavbarComponent,
+    SideMenuComponent,
+
+    //Pages
+    AddTaskPage,
+    ViewTaskPage,
+    UpdateTaskPage,
+    LoginPage,
+    TasksPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ApiService],

@@ -14,7 +14,7 @@
             <ion-label>{{task.dateTimeClosedAt}}</ion-label>
 
             <ion-icon name="eye-outline" (click)="gotToViewTask(task)"></ion-icon>
-            <ion-icon name="create-outline"></ion-icon>
+            <ion-icon name="create-outline" (click)="goToUpdateTask(task)"></ion-icon>
             <ion-icon name="trash-outline" (click)="deleteTask(task)"></ion-icon>
             
         </ion-item>
