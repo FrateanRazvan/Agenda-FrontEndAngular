@@ -1,0 +1,15 @@
+<app-navbar [pageName]="'View Task'"></app-navbar>
+<ion-content>
+     <div>
+        <ion-item>Title: {{task.title}}</ion-item>
+        <ion-item>Description: {{task.description}}</ion-item>
+        <ion-item>DateTimeAdded: {{task.dateTimeAdded}}</ion-item>
+        <ion-item>DateTimeDedeadline: {{task.dateTimeDeadline}}</ion-item>
+        <ion-item>Importance: {{task.importance}}</ion-item>
+        <ion-item>State: {{task.state}}</ion-item>
+        <ion-item>DateTimeClosedAt: {{task.dateTimeClosedAt}}</ion-item>
+     </div>
+</ion-content>
+<ion-footer>
+    <ion-button expand="block" color="secondary" [routerLink]="'/tasks'">Back to tasks</ion-button>
+</ion-footer>

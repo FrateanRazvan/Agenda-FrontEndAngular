@@ -14,10 +14,11 @@ import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
 import { FormsModule } from '@angular/forms';
+import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, SideMenuComponent, AddTaskPage,
+    AppComponent, NavbarComponent, SideMenuComponent, AddTaskPage, ViewTaskPage,
     LoginPage, TasksPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],

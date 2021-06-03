@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { TasksPage } from './tasks/tasks.page';
 import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
+import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'tasks/add',
     component: AddTaskPage
+  },
+  {
+    path: 'tasks/view',
+    component: ViewTaskPage
   },
   {
     path: '',

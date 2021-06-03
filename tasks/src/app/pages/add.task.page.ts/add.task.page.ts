@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+import { NavController } from "@ionic/angular";
 import { IMPORTANCE_REF, STATE_REF, Task } from "src/app/models/task.model";
+import { ApiService } from "src/app/services/api.service";
 
 @Component({
     selector: 'app-add-task',
@@ -13,7 +15,17 @@ import { IMPORTANCE_REF, STATE_REF, Task } from "src/app/models/task.model";
 
     task = new Task();
 
+    constructor(private apiSvc: ApiService, private navCtrl: NavController){
+
+    }
+
     addTask(){
-        this.task.dateTimeAdded = Date.UTC.toString;
+        this.apiSvc.post("api/Tasks", this.task).subscribe(() => {
+          this.navCtrl.pop();
+        })
+    }
+
+    backToTasks(){
+      this.navCtrl.pop();
     }
   }

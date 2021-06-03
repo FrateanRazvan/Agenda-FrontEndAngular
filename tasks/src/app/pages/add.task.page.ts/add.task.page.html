@@ -8,37 +8,41 @@
             </ion-item>
             <ion-item>
                 <ion-label>Description</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" [(ngModel)]="task.description" name="description"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Datetime Added</ion-label>
-                <ion-datetime displayFormat="YYYY-MM-DDTHH:mm"></ion-datetime>
+                <ion-datetime displayFormat="YYYY-MM-DDTHH:mm" [(ngModel)]="task.dateTimeAdded" name="dateTimeAdded"></ion-datetime>
             </ion-item>
             <ion-item>
                 <ion-label>Datetime Deadline</ion-label>
-                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2030"></ion-datetime>
+                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2045" [(ngModel)]="task.dateTimeDeadline" name="dateTimeDeadline"></ion-datetime>
             </ion-item>
             <ion-item>
                 <ion-label>Importance</ion-label>
-                <ion-select interface="popover">
-                   <ion-select-option *ngFor="let option of IMPORTANCE_REF">
+                <ion-select interface="popover" [(ngModel)]="task.importance" name="importance">
+                   <ion-select-option *ngFor="let option of IMPORTANCE_REF" [value]="option">
                        {{option}}
                    </ion-select-option>
                 </ion-select>
             </ion-item>
             <ion-item>
                 <ion-label>State</ion-label>
-                <ion-select interface="popover">
-                    <ion-select-option *ngFor="let option of STATE_REF">
+                <ion-select interface="popover" [(ngModel)]="task.state" name="state">
+                    <ion-select-option *ngFor="let option of STATE_REF" [value]="option">
                         {{option}}
                     </ion-select-option>
                  </ion-select>
             </ion-item>
             <ion-item>
                 <ion-label>Datetime ClosedAt</ion-label>
-                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2030"></ion-datetime>
+                <ion-datetime [pickerOptions]="customPickerOptions" placeholder="Select Date" displayFormat="YYYY-MM-DDTHH:mm" max="2045" [(ngModel)]="task.dateTimeClosedAt" name="dateTimeClosedAt"></ion-datetime>
             </ion-item>
-            <ion-button (click)="login()" >Log in</ion-button>
+            
         </form>
      </div>
 </ion-content>
+<ion-footer>
+    <ion-button expand="block" (click)="addTask()">Add task</ion-button>
+    <ion-button expand="block" color="secondary" [routerLink]="'/tasks'">Back to tasks</ion-button>
+</ion-footer>

@@ -5,12 +5,18 @@
             <ion-label>
                 {{i+1}}
             </ion-label>
+            <ion-label>{{task.title}}</ion-label>
             <ion-label>{{task.description}}</ion-label>
             <ion-label>{{task.dateTimeAdded}}</ion-label>
             <ion-label>{{task.dateTimeDedeadline}}</ion-label>
             <ion-label>{{task.importance}}</ion-label>
             <ion-label>{{task.state}}</ion-label>
             <ion-label>{{task.dateTimeClosedAt}}</ion-label>
+
+            <ion-icon name="eye-outline" (click)="gotToViewTask(task)"></ion-icon>
+            <ion-icon name="create-outline"></ion-icon>
+            <ion-icon name="trash-outline" (click)="deleteTask(task)"></ion-icon>
+            
         </ion-item>
     </ion-list>
 </ion-content>
