@@ -16,6 +16,7 @@ import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
 import { FormsModule } from '@angular/forms';
 import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
 import { UpdateTaskPage } from './pages/update.task.page.ts/update.task.page';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { UpdateTaskPage } from './pages/update.task.page.ts/update.task.page';
     TasksPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ApiService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ApiService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
