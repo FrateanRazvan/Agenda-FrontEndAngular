@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Task } from '../models/task.model';
 import { ApiService } from '../services/api.service';
 
@@ -10,12 +10,18 @@ import { ApiService } from '../services/api.service';
   encapsulation: ViewEncapsulation.None
 })
 
-export class TasksPage{
+export class TasksPage implements OnInit{
     tasks: Array<Task>
     task: Task
 
-    constructor(private apiSvc: ApiService, private router: Router){
+    constructor(private apiSvc: ApiService, private router: Router, private route: ActivatedRoute){
       
+    }
+
+    ngOnInit(): void {
+      // this.route.params.subscribe(params => {
+      //   params.
+      // }
     }
 
     ionViewWillEnter(){
@@ -28,7 +34,7 @@ export class TasksPage{
 
     goToUpdateTask(task: Task){
       this.apiSvc.get(`api/Tasks/${task.id}`).subscribe((response: Task) => {
-        console.log("sunt aici"+response.id);
+        
         //set my task with the one i get by id
         this.task = response;
 

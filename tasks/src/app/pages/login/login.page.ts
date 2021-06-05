@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
 import { AuthResponse } from 'src/app/models/auth.model';
 import { Login } from 'src/app/models/login.model';
 import { ApiService } from 'src/app/services/api.service';
@@ -14,6 +16,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPage{
 
   loginData = new Login();
+  
 
   constructor(
     private router: Router,
@@ -23,9 +26,8 @@ export class LoginPage{
 
   login(){
     this.apiSvc.post('api/authentication/login', this.loginData).subscribe((response: AuthResponse) => {
-      console.log(response);
-      console.log(this.loginData);
        this.authSvc.saveToken(response.token);
+      
     });
   }
 }

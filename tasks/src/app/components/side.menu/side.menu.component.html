@@ -9,7 +9,7 @@
         <ion-item [routerLink]="'/tasks'">My Tasks</ion-item>
       </ion-menu-toggle>
       <ion-menu-toggle auto-hide="true">
-        <ion-item>Log out</ion-item>
+        <ion-item (click)="logOut()">Log out</ion-item>
       </ion-menu-toggle>
     </ion-content>
     

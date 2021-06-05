@@ -25,8 +25,6 @@ import { ApiService } from "src/app/services/api.service";
     }
 
     updateTask(task: Task){
-      console.log(task);
-
       const activationDate = new Date();
 
       task.dateTimeAdded =  new Date().toISOString();

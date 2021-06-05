@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 
 export class SideMenuComponent{
+
+  constructor(private authSvc: AuthService, private navCtrl: NavController){
+
+  }
+
+  logOut(){
+    this.authSvc.removeToken();
+    this.navCtrl.navigateRoot('');
+  }
 }

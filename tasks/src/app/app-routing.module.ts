@@ -5,6 +5,7 @@ import { TasksPage } from './tasks/tasks.page';
 import { AddTaskPage } from './pages/add.task.page.ts/add.task.page';
 import { ViewTaskPage } from './pages/view.task.page.ts/view.task.page';
 import { UpdateTaskPage } from './pages/update.task.page.ts/update.task.page';
+import { AuthGuard } from './security.guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  { 
+    path: 'members', 
+    canActivate: [AuthGuard],
+    loadChildren: './members/member-routing.module#MemberRoutingModule'
   },
 ];
 
